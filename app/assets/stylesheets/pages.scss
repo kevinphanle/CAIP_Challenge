@@ -5,4 +5,11 @@
     height: 100px;
     padding: $base-spacing;
   }
+
+  &_footer {
+    background: $dark-blue;
+    color: $white;
+    padding: $base-spacing;
+
+  }
 }
