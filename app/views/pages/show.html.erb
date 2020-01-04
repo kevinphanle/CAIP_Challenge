@@ -20,12 +20,13 @@
         <div class="card-background">
           <div class="search"></div>
           <div class="video-list">
+          
             <% @videos.each do |video| %>
-            
+              <span><%= video %></span>
             <% end %>
           </div>
         </div>
-        <%= @videos %>
+        <%# <%= @videos %>
       </div>
     </div>
   
