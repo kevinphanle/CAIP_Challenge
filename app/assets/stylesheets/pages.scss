@@ -31,9 +31,11 @@
     }
 
     .carat-down {
-      // width: 50px;
+      width: fit-content;
+      height: fit-content;
       font-size: 20px;
       cursor: pointer;
+      text-align: center;
     }
 
     &-title {

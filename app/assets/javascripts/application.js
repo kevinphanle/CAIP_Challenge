@@ -19,6 +19,7 @@
 
 function reveal(event) {
   var elements = document.querySelectorAll(".video-popup");
+  console.log(event.target);
 
   elements.forEach(ele => {
     if (ele.classList.contains("hidden")) {
