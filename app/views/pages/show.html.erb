@@ -22,18 +22,48 @@
           <div class="video-list">
           
             <% @videos.values.last.each do |video| %>
+              <% currentVideo = video["snippet"] %>
               <div class="video">
-                <div class="video-title">
-                  <%= video["snippet"]["title"].length < 35 ? video["snippet"]["title"] : video["snippet"]["title"][0,36].concat("...") %>
-                </div>
-                <div class="video-author">
-                  <%= video["snippet"]["channelTitle"]%>
-                </div>
-                <div class="video-published">
-                  <%= video["snippet"]["publishedAt"].to_date %>
+                <div class="video-content" onClick="reveal(event)">
+                  <span class="carat-down" onClick="reveal(event)">&or;</span>
+                  
+                  <div class="video-title">
+                    <%= currentVideo["title"].length < 35 ? currentVideo["title"] : currentVideo["title"][0,36].concat("...") %>
+                  </div>
+                  <div class="video-author">
+                    <%= currentVideo["channelTitle"]%>
+                  </div>
+                  <div class="video-published">
+                    <%= currentVideo["publishedAt"].to_date %>
+                  </div>
+                
                 </div>
 
+                  <div id="modal" class="video-popup hidden" onClick="reveal(event)">
+                    <div class="description-box">
+                      <div class="thumbnail">
+                        <img src="<%= currentVideo["thumbnails"]["medium"]["url"] %>" alt="">
+                      </div>
+                      <div class="description">
+                        <p>Description</p>
+                        <%= currentVideo["description"] %>
+                      </div>
+                    </div>
 
+                    <div class="description-stats">
+                      <div class="view stat">View Count
+                        <p><%= video["statistics"]["viewCount"] %></p>
+                      </div>
+                      <div class="like stat">Like Count
+                        <p><%= video["statistics"]["likeCount"] %></p>
+                      </div>
+                      <div class="tags stat">Tags
+                        <p><%= currentVideo["tags"].join(', ') %></p>
+                      </div>
+                    </div>
+                  </div>
+
+                <%# </div> %>
 
               </div>
             <% end %>

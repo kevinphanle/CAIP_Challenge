@@ -10,16 +10,31 @@
     background: $dark-blue;
     color: $white;
     padding: $base-spacing;
+    position: static;
+    bottom: 0;
+    width: 100%;
 
   }
 
   .video {
-    padding: $base-spacing;
-    border-top: 1px solid $light-gray;
-    position: relative;
+    // padding: $base-spacing;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    
+    &-content {
+      padding: $base-spacing;
+      border-top: 1px solid $light-gray;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .carat-down {
+      // width: 50px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
     &-title {
       width: 350px;
@@ -32,5 +47,63 @@
     &-published {
       width: fit-content;
     }
+
+    .hidden {
+      display: none;
+    }
+
+    &-popup {
+      display: flex;
+      flex-direction: column;
+      padding: $base-spacing;
+      padding-top: 0;
+      
+      .description-box {
+        display: flex;
+        padding: 0 0 $base-spacing $base-spacing;
+        padding-top: 0;
+
+        img {
+          width: 200px;
+        }
+
+        .description {
+          padding-left: $base-spacing;
+          font-family: "Montserrat";
+          font-size: 14px;
+          
+          p {
+            font-size: 12px;
+            margin: 0;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .description-stats {
+        display: flex;
+        justify-content: space-between;
+
+        .tags {
+          width: 400px;
+        }
+
+        .stat {
+          font-family: "Montserrat";
+          font-size: 12px;
+          text-transform: uppercase;
+          color: $blue-dark-gray;
+
+          p {
+            color: black;
+            text-transform: none;
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+      }
+    }
   }
+
+
 }

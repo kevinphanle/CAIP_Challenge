@@ -16,3 +16,16 @@
 //= require jquery
 //= require tab-menu.js
 //= require_tree .
+
+function reveal(event) {
+  var elements = document.querySelectorAll(".video-popup");
+
+  elements.forEach(ele => {
+    if (ele.classList.contains("hidden")) {
+      ele.classList.remove("hidden");
+    } else {
+      ele.classList.add("hidden");
+    }
+  })
+
+}
