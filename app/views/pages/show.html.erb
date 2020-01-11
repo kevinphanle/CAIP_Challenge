@@ -18,26 +18,36 @@
     <div class="tab-content " id="page1">
       <div class="card box-shadow">
         <div class="card-background">
-          <div class="search"></div>
+          <div class="searchbar">
+            <div class="searchbox">
+              
+              <input type="text" name="search" value="<% @videos %>" placeholder="Text"/>
+            
+            </div>
+            <button>Reset</button>
+            <button>Search</button>
+          </div>
           <div class="video-list">
           
             <% @videos.values.last.each do |video| %>
               <% currentVideo = video["snippet"] %>
               <div class="video">
                 <div class="video-content" onClick="reveal(event)">
-                  <span class="carat-down" onClick="reveal(event)">&or;</span>
-                  
-                  <div class="video-title">
-                    <%= currentVideo["title"].length < 35 ? currentVideo["title"] : currentVideo["title"][0,36].concat("...") %>
+                  <div class="video-top">
+                    <span class="carat-down" onClick="revealCarat(event)">
+                    <%= image_tag "ChevronDown.svg" %>
+                    </span>
+                    
+                    <div class="video-title">
+                      <%= currentVideo["title"].length < 35 ? currentVideo["title"] : currentVideo["title"][0,36].concat("...") %>
+                    </div>
+                    <div class="video-author">
+                      <%= currentVideo["channelTitle"]%>
+                    </div>
+                    <div class="video-published">
+                      <%= currentVideo["publishedAt"].to_date %>
+                    </div>
                   </div>
-                  <div class="video-author">
-                    <%= currentVideo["channelTitle"]%>
-                  </div>
-                  <div class="video-published">
-                    <%= currentVideo["publishedAt"].to_date %>
-                  </div>
-                
-                </div>
 
                   <div id="modal" class="video-popup hidden" onClick="reveal(event)">
                     <div class="description-box">
@@ -46,7 +56,7 @@
                       </div>
                       <div class="description">
                         <p>Description</p>
-                        <%= currentVideo["description"].split('\n') %>
+                        <%= currentVideo["description"].split("\n").join("<br>").html_safe %>
                       </div>
                     </div>
 
@@ -63,7 +73,7 @@
                     </div>
                   </div>
 
-                <%# </div> %>
+                </div>
 
               </div>
             <% end %>

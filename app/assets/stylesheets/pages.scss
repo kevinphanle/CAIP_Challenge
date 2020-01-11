@@ -21,7 +21,8 @@
     display: flex;
     flex-direction: column;
     
-    &-content {
+
+    &-top {
       padding: $base-spacing;
       border-top: 1px solid $light-gray;
       position: relative;
@@ -39,7 +40,7 @@
     }
 
     &-title {
-      width: 350px;
+      width: 300px;
     }
 
     &-author {
@@ -107,5 +108,15 @@
     }
   }
 
+  .searchbar {
+    .searchbox {
+      background: $light-gray;
+      width: 500px;
+
+      input {
+        width: 90%;
+      }
+    }
+  }
 
 }

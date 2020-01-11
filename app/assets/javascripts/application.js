@@ -19,14 +19,23 @@
 
 function reveal(event) {
   var elements = document.querySelectorAll(".video-popup");
-  console.log(event.target);
 
   elements.forEach(ele => {
     if (ele.classList.contains("hidden")) {
-      ele.classList.remove("hidden");
+      if (ele === event.target.nextElementSibling) {
+        ele.classList.remove("hidden");
+      }
     } else {
       ele.classList.add("hidden");
     }
   })
+}
 
+function revealCarat(event) {
+  var element = document.querySelector("#modal");
+  if (element.classList.contains('hidden')) {
+    element.classList.remove('hidden');
+  } else {
+    element.classList.add('hidden');
+  }
 }
